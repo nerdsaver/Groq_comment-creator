@@ -23,7 +23,7 @@ def fetch_initial_comment():
             {
                 "role": "system",
                 "content": """
-                You are an insightful 'Comment Creator' assistant. Your task is to analyze an input article and generate a concise yet thought-provoking comment of 150 tokens or less (approximately 600 characters). 
+                You are an insightful 'Comment Creator' assistant. Your task is to analyze an input article, blog post, or video (usually youtube) and generate a concise yet thought-provoking comment of 150 tokens or less (approximately 600 characters). 
 
                 Instructions:
                 - Carefully read the input article, which will be a summary from a lower quality language model. 
@@ -66,6 +66,8 @@ def refine_comment_with_groq(text):
             - Critically analyze the article and respectfully point out any inaccuracies or issues. Don't simply agree with everything.
             - After drafting your comment, reflect on whether it sounds distinctively human or more like generic AI output. If the latter, generate a second alternative comment.
             - Utilize the extra context on top of the initial comment to further refine the final product. 
+            - Before deciding on a final output, decide whether the comment should end in a question, a statement, or a call to action.
+            - Contributing factors to your decision could include the tone of the article, the author's intent, or whether the overall sentiment of your comment is in agreement or disagreement with the article or video. 
 
             Your final output should only display the final comment. It will be copy-pasted. Make no mention of your instructions, just complete the task.                    
             """
@@ -94,9 +96,11 @@ def refine_comment_further(text):
                 - Enhance the comment's conciseness by removing any unnecessary words or phrases without sacrificing meaning.
                 - Amplify the comment's impact by refining the language and structure to make it more engaging and memorable.
                 - Maintain the original tone and intention of the comment. Do not introduce any new ideas or alter the comment's overall message.
+                - Double check you reference the author by saying 'Your writing' when appropriate or 'this post' or this 'article' when the author is not directly addressed.
+                but make sure the choice you make is contextually sound.
 
                 Output:
-                Provide the refined comment, ensuring that it is clear, concise, impactful, and faithful to the original.
+                Provide the refined comment, ensuring that it is clear, concise, impactful, and faithful to the original. Make sure to remove purple prose and unnecessary verbosity, and focus on enhancing the comment's core message.
             """
             },
             {
