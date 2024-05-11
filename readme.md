@@ -6,6 +6,9 @@ Introduction
 
 The Comment Refinement Tool is a GUI application that generates and refines comments based on input text. The tool utilizes the Groq API to produce high-quality comments that are concise, clear, and impactful. This documentation provides an overview of the tool's functionality, classes, and functions.
 
+**REQUIREMENTS**
+Place your API key in the .env file where it says 'YourAPIKEY'
+
 Functionality
 -------------
 
